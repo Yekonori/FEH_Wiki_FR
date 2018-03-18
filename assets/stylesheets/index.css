@@ -1,0 +1,36 @@
+/**********************************************************************/
+/************************* Importation Fonts  *************************/
+/**********************************************************************/
+
+@font-face {
+    font-family: Sumana;
+    src: url(../fonts/Sumana/Sumana-Regular.ttf);
+}
+
+@font-face {
+    font-family: CrimsonText;
+    src: url(../fonts/Crimson_Text/CrimsonText-Regular.ttf);
+}
+
+@font-face {
+    font-family: MarckScript;
+    src: url(../fonts/Marck_Script/MarckScript-Regular.ttf);
+}
+
+
+/**********************************************************************/
+/******************************* Fonts  *******************************/
+/**********************************************************************/
+
+p {
+    font-family: "CrimsonText", serif
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Sumana", serif
+}
