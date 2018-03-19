@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/assets/stylesheets/reset.css">
     <!-- CSS Perso -->
     <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <?= $stylesheetNav?? "" ?>
 </head>
 <body>
     <?= $content; ?>

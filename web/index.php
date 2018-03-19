@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../app.php';
 
-if( $uri == '/' ){
+if( $uri == '/' || $uri == '/Accueil' ){
 	index();
 }else {
     header('HTTP/1.1 404 Not Found');
