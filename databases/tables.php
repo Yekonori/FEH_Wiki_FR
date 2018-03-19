@@ -1,7 +1,5 @@
 <?php
 
-// $app = require_once __DIR__ . '/../app.php';
-
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
@@ -17,50 +15,50 @@ $pdo = new PDO('mysql:host='.DB_HOST.'; dbname='.DB_DBNAME, DB_USER, DB_PASSWORD
 $heroes_weapons = "CREATE TABLE `heroes_weapons` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `weapon` ENUM('Épée', 'Lance', 'Hache', 'Tome', 'Souffle', 'Arc', 'Dagues', 'Bâton'),
-    PRIMARY KEY (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
 
 $heroes_colors = "CREATE TABLE `heroes_colors` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `color` ENUM('Rouge', 'Bleu', 'Vert', 'Gris'),
-    PRIMARY KEY (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
 
 $heroes_movements = "CREATE TABLE `heroes_movements` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `movement` ENUM('Fantassin', 'Cuirassé', 'Cavalier', 'Volant'),
-    PRIMARY KEY (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
 
 $heroes_games = "CREATE TABLE `heroes_games` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `game` VARCHAR(225) NOT NULL,
-    PRIMARY KEY (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
 
 $heroes_voices_jap = "CREATE TABLE `heroes_voices_jap` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `voice_jap` VARCHAR(225) NOT NULL,
-    PRIMARY KEY (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
 
 $heroes_voices_ang = "CREATE TABLE `heroes_voices_ang` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `voice_ang` VARCHAR(225) NOT NULL,
-    PRIMARY KEY (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
 
 $heroes_illustrators = "CREATE TABLE `heroes_illustrators` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `illustrator` VARCHAR(225) NOT NULL,
-    PRIMARY KEY (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
 
 $heroes_obtentions = "CREATE TABLE `heroes_obtentions` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `obtention` ENUM('Début du Jeu', 'Tirage', 'Grande Bataille', 'Tourmente'),
-    PRIMARY KEY (`id`),
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
 
 $heroes = "CREATE TABLE `heroes` (
     `id` SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -93,5 +91,17 @@ $heroes = "CREATE TABLE `heroes` (
     CONSTRAINT `heroes_voice_jap_foreign` FOREIGN KEY (`voice_jap`) REFERENCES `heroes_voices_jap` (`voice_jap`) ON DELETE CASCADE,
     CONSTRAINT `heroes_voice_ang_foreign` FOREIGN KEY (`voice_ang`) REFERENCES `heroes_voices_ang` (`voice_ang`) ON DELETE CASCADE,
     CONSTRAINT `heroes_illustrator_foreign` FOREIGN KEY (`illustrator`) REFERENCES `heroes_illustrators` (`illustrator`) ON DELETE CASCADE,
-    CONSTRAINT `heroes_obtention_foreign` FOREIGN KEY (`obtention`) REFERENCES `heroes_obtentions` (`obtention`) ON DELETE CASCADE,
+    CONSTRAINT `heroes_obtention_foreign` FOREIGN KEY (`obtention`) REFERENCES `heroes_obtentions` (`obtention`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+
+
+// Creation des Tables
+$pdo->exec($heroes_weapons);
+$pdo->exec($heroes_colors);
+$pdo->exec($heroes_movements);
+$pdo->exec($heroes_games);
+$pdo->exec($heroes_voices_jap);
+$pdo->exec($heroes_voices_ang);
+$pdo->exec($heroes_illustrators);
+$pdo->exec($heroes_obtentions);
+$pdo->exec($heroes);
