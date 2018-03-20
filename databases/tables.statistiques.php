@@ -19,7 +19,6 @@ $base_stats = "CREATE TABLE `base_stats` (
     `bs_spd` TINYINT(2) UNSIGNED NOT NULL,
     `bs_def` TINYINT(2) UNSIGNED NOT NULL,
     `bs_res` TINYINT(2) UNSIGNED NOT NULL,
-
     FOREIGN KEY (`heroes_id`) REFERENCES `heroes` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_bin;";
 
@@ -30,12 +29,10 @@ $growth_points = "CREATE TABLE `growth_points` (
     `gp_spd` TINYINT(2) UNSIGNED NOT NULL,
     `gp_def` TINYINT(2) UNSIGNED NOT NULL,
     `gp_res` TINYINT(2) UNSIGNED NOT NULL,
-
     FOREIGN KEY (`heroes_id`) REFERENCES `heroes` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_bin;";
 
 $growth_points_value = "CREATE TABLE `growth_points_value` (
-    
     `growth_point` TINYINT(2),
     `rank` ENUM('1', '2', '3', '4', '5') NOT NULL,
     `value` TINYINT(2) UNSIGNED NOT NULL
@@ -48,7 +45,6 @@ $rank = "CREATE TABLE `rank` (
     `rank_3` BOOL NOT NULL,
     `rank_4` BOOL NOT NULL,
     `rank_5` BOOL NOT NULL,
-
     FOREIGN KEY (`heroes_id`) REFERENCES `heroes` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_bin;";
 
