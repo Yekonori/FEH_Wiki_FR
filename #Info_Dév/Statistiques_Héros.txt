@@ -3,7 +3,7 @@
 
     1. Statistiques de Base (SB)        -> Soit celle au Rang 5 & Niveau 1
         4* => -1 PV & 2 Stats plus Faible
-        3* => -2 Partout
+        3* => -1 Partout
         2* => -2 PV & 2 Sats plus Faible / -1 pour le Reste
         1* => -2 Partout
     2. Statistiques de Base IV (SB-IV)  -> Modification de l'IV

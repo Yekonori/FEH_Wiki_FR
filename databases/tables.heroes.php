@@ -16,25 +16,25 @@ $heroes_games = "CREATE TABLE `heroes_games` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `game` VARCHAR(225) NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_bin;";
 
 $heroes_voices_jap = "CREATE TABLE `heroes_voices_jap` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `voice_jap` VARCHAR(225) NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_bin;";
 
 $heroes_voices_ang = "CREATE TABLE `heroes_voices_ang` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `voice_ang` VARCHAR(225) NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_bin;";
 
 $heroes_illustrators = "CREATE TABLE `heroes_illustrators` (
     `id` SMALLINT(1) UNSIGNED NOT NULL AUTO_INCREMENT,
     `illustrator` VARCHAR(225) NOT NULL,
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;";
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_bin;";
 
 $heroes = "CREATE TABLE `heroes` (
     `id` SMALLINT(3) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -44,17 +44,17 @@ $heroes = "CREATE TABLE `heroes` (
     `weapon` ENUM('Épée', 'Lance', 'Hache', 'Tome', 'Souffle', 'Arc', 'Dagues', 'Bâton'),
     `color` ENUM('Rouge', 'Bleu', 'Vert', 'Gris'),
     `movement` ENUM('Fantassin', 'Cuirassé', 'Cavalier', 'Volant'),
-    `game` SMALLINT(2) UNSIGNED NOT NULL,
-    `voice_jap` SMALLINT(3) UNSIGNED NOT NULL,
-    `voice_ang` SMALLINT(3) UNSIGNED NOT NULL,
-    `illustrator` SMALLINT(2) UNSIGNED NOT NULL,
-    `obtention` ENUM('Début du Jeu', 'Tirage', 'Tirage Événementiel', 'Grande Bataille', 'Tourmente'),
+    `game_id` SMALLINT(2) UNSIGNED NOT NULL,
+    `voice_jap_id` SMALLINT(3) UNSIGNED NOT NULL,
+    `voice_ang_id` SMALLINT(3) UNSIGNED NOT NULL,
+    `illustrator_id` SMALLINT(2) UNSIGNED NOT NULL,
+    `obtention` ENUM('Début du Jeu', 'Tirage', 'Grande Bataille', 'Tourmente'),
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`game`) REFERENCES `heroes_games` (`id`) ON DELETE CASCADE,
-    FOREIGN KEY (`voice_jap`) REFERENCES `heroes_voices_jap` (`id`) ON DELETE CASCADE,
-    FOREIGN KEY (`voice_ang`) REFERENCES `heroes_voices_ang` (`id`) ON DELETE CASCADE,
-    FOREIGN KEY (`illustrator`) REFERENCES `heroes_illustrators` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+    FOREIGN KEY (`game_id`) REFERENCES `heroes_games` (`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`voice_jap_id`) REFERENCES `heroes_voices_jap` (`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`voice_ang_id`) REFERENCES `heroes_voices_ang` (`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`illustrator_id`) REFERENCES `heroes_illustrators` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE utf8_bin;";
 
 // Destruction des Tables
 $pdo->exec("DROP TABLE IF EXISTS heroes");
